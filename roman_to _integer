@@ -1,0 +1,16 @@
+var romanToInt = function (s) {
+  const map = { V: 5, X: 10, L: 50, I: 1, C: 100, D: 500, M: 1000 };
+
+  let total = 0;
+  s.split("").forEach((num, i) => {
+    if (map[num] < map[s[i + 1]]) {
+      return (total -= map[num]);
+    } else {
+      total += map[num];
+    }
+  });
+
+  return console.log(total);
+};
+
+romanToInt("IV");
