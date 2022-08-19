@@ -1,0 +1,5 @@
+var isPalindrome = function(x) {
+   let palindrome = parseInt(String(x).split("").reverse().join(""));
+   if(palindrome === x) return true;
+    return false;
+};
