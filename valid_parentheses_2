@@ -1,0 +1,23 @@
+var isValid = function(s) {
+  let brackets = { "(": ")", "{": "}", "[": "]" };
+  let test = s.split("");
+  let boolianArray = [];
+  test.map((bracket, i) => {
+    if (brackets.hasOwnProperty(bracket)) {
+      if (test[i + 1] == brackets[test[i]]) {
+        boolianArray.push(true);
+      } else {
+        boolianArray.push(false);
+      }
+    } else {
+      return
+    }
+  });
+
+  if (boolianArray.every((el) => el == true)){ return true}
+  else {
+   return false;
+  }
+};
+
+isValid('()')
