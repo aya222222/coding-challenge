@@ -1,0 +1,27 @@
+var isPalindrome = function (s) {
+  if(s　=== '')
+  { return false}
+  else if(!s.trim()){
+    return true
+  }
+  else{
+  let word = s.toLowerCase().replace(/\s+/g, "").split("");
+  let checkedWord = [];
+  console.log(word);
+  word.map((letter) => {
+    if (letter.match(/[0-9]/gi) || letter.match(/[a-z]/gi)) {
+      checkedWord.push(letter);
+    }
+  });
+  console.log(checkedWord);
+  let originalWord = checkedWord.join("");
+  let reverseWord = checkedWord.reverse().join("");
+  console.log(checkedWord);
+  if (originalWord === reverseWord) {
+   return true
+  }else{
+    return false
+  }
+}
+
+};
