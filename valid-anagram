@@ -1,0 +1,19 @@
+var isAnagram = function(s, t) {
+  if (s.length !== t.length) return false;
+  let sword = {};
+  let tword = {};
+  for (let i = 0; i < s.length; i++) {
+    if (!sword[s[i]]) sword[s[i]] = 0;
+    if (!tword[t[i]]) tword[t[i]] = 0;
+
+    sword[s[i]]++;
+    tword[t[i]]++;
+  }
+  for (let key in sword) {
+    if (tword[key] !== sword[key]) {
+      return false;
+    }
+  }
+  console.log("true");
+  return true;
+};
