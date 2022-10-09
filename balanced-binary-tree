@@ -1,0 +1,34 @@
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
+}
+
+var isBalanced = function (root) {
+  let res = true;
+
+  var helper = function (root) {
+    if (root == null) return 0;
+
+    var left = helper(root.left);
+    var right = helper(root.right);
+    if (Math.abs(left - right) > 1) return (res = false);
+    console.log(left, right);
+
+    return 1 + Math.max(left, right);
+  };
+
+  helper(root);
+  console.log(res);
+  return res;
+};
+
+let tree = new TreeNode(3);
+tree.left = new TreeNode(9);
+tree.right = new TreeNode(20);
+tree.left.left = new TreeNode(null);
+tree.left.right = new TreeNode(null);
+tree.right.left = new TreeNode(15);
+tree.right.right = new TreeNode(7);
+
+isBalanced(tree);
