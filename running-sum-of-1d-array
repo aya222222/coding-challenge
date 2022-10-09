@@ -1,0 +1,18 @@
+var runningSum = function (nums) {
+  let newArray = [];
+  nums.map((num, i ) => {
+    if(i == 0) {
+      newArray.push(num)
+    }else {
+      let newNum = newArray[i-1] + num;
+      newArray.push(newNum);
+    
+    }
+    console.log(newArray)
+  
+  })
+
+  return newArray
+};
+
+runningSum([1, 1, 1, 1]);
