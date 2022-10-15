@@ -1,0 +1,45 @@
+class MyQueue {
+  constructor() {
+    this.pushStack = [];
+    this.popStack = [];
+  }
+
+  push(val) {
+    this.pushStack.push(val);
+  }
+
+  pop() {
+    while (this.pushStack.length) {
+      this.popStack.push(this.pushStack.pop());
+    }
+
+    let answer = this.popStack.pop();
+
+    //rebuild push stack
+    while (this.popStack.length) {
+      this.pushStack.push(this.popStack.pop());
+    }
+    return answer;
+  }
+
+  peek() {
+    return this.pushStack[0];
+  }
+
+  empty() {
+    console.log(this.pushStack.length == 0);
+    return this.pushStack.length === 0;
+  }
+}
+
+var obj = new MyQueue();
+obj.push(1);
+obj.push(2);
+obj.push(3);
+obj.push(4);
+var param_2 = obj.pop();
+console.log(param_2);
+var param_3 = obj.peek();
+console.log("peek" + param_3);
+var param_4 = obj.empty();
+console.log("empty is" + param_4);
