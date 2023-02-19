@@ -1,0 +1,43 @@
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function(numRows) {
+    let array = [];
+    for(let i = 0; i < numRows; i++) {
+        if(i == 0){
+            array.push([1])
+            console.log('0 is' + array)
+        }
+        // else{
+           
+            
+            if(i==1){
+                console.log('1 ')
+              array.push([1,1])
+            }
+           if(i > 1){
+                let array2 = [1]
+            let lastEl = array[array.length-1];
+            console.log('last EL is '+ lastEl)
+            lastEl.map((el, i) => {
+                 if(i == lastEl.length-1){
+                return
+            }
+            console.log('el is index '+ i +  el)
+            array2.push(el + lastEl[i + 1]);
+            console.log(array2);
+           
+           
+
+         })
+         array2.push(1)
+         array.push(array2)
+}
+        // }
+        
+   
+
+    }
+       return array
+};
