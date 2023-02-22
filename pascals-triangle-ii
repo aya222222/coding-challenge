@@ -1,0 +1,41 @@
+/**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+var getRow = function(rowIndex) {
+        let array = [];
+
+        for(let i = 0; i <= rowIndex; i++) {
+
+            if(i == 0){
+                array.push([1]);
+             }
+         
+            if(i==1){
+                array.push([1,1]);                
+             }
+
+            if(i > 1){
+                let array2 = [1];
+                let lastEl = array[array.length-1];
+               
+                lastEl.map((el, i) => {
+                    if(i == lastEl.length-1){          
+                    return 
+                     }
+                
+                    array2.push(el + lastEl[i + 1]);
+            
+                 });
+
+                array2.push(1);
+                array.push(array2);
+
+              }
+  
+
+         }
+
+          return array[rowIndex]
+
+};
