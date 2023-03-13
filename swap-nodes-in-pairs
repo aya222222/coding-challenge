@@ -1,0 +1,33 @@
+var swapPairs = function (head) {
+  //1.create a dummy node to avoid any cases that might arrise,
+  //giving it a value of 0 and point it at the head of the linked list.
+  let dummy = new ListNode(0, head);
+  //2. create a previous pointer(pp) and assign it to the dummy node.
+  let previous = dummy;
+  //3. create a current pointer(cp) and assign it to the head of the linked list.
+  let current = dummy.next;
+
+  //4.iterate through the linked list while there is a current pointer
+  //and while there is a value next to current pointer.
+  while (current != null && current.next != null) {
+    //5.identify the pair of nodes after the ones we are swapping and hold their
+    //value in a variable called next_pair.
+    let next_pair = current.next.next;
+    let second = current.next;
+    //6.point the 'second' node to the current pointer - reversing the direction.
+    second.next = current;
+    //7.point the current node to the next_pair node.
+    current.next = next_pair;
+
+    //8.point the previous pointer to the second node, completing the swap.
+    previous.next = second;
+
+    //9.move the current and previous pointers to their next positions by moving te previous pointer
+    //to the current poisiton, move the current pointer to the next_pair position
+    previous = current;
+    current = next_pair;
+  }
+
+  //when the loop completes, return the head of the linked list(dummy.next)
+  return dummy.next;
+};
