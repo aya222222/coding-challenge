@@ -1,0 +1,24 @@
+var getIntersectionNode = function (headA, headB) {
+    //if headA or headB doesn't exist, return
+  if (!headA || !headB) {
+    return null;
+  }
+  let pointA = headA;
+  let pointB = headB;
+  //make pointA and pointBs length same by pointing to headB/headA when they get to the end(null)
+  //and when pointA and pointB are same, return pointA(or pointB.it's same)
+  while (pointA != pointB) {
+    if (!pointA) {
+      pointA = headB; //if it reaches to the end(null), points to headB
+    } else {
+      pointA = pointA.next; //if it's not null, move to next
+    }
+    if (!pointB) {
+      pointB = headA; //if it reaches to the end(null), points to headA
+    } else {
+      pointB = pointB.next; //if it's not null, move to next
+    }
+  }
+
+  return pointA;
+};
